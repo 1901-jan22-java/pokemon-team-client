@@ -1,5 +1,6 @@
 # pokemon-team-client
 POKEMON API USED - https://pokeapi.co/
+
 Group Members - Kevin Ho, Joshua Vanderzee, Michael Koerber, Lei Garay, Andrew Simmons
 
 Elevator Pitch - The application is to help users design their Pokemon teams and compare their own team against other users. It will be focused on balancing and recommend removing as many type disadvantages.
@@ -16,7 +17,7 @@ Search Pokemon:
     -Type
     -Game
     -Evolutions
-
+    
 Create Pokemon Battle Team:
 5.  User can build a new Pokemon Battle Team.
 6.  Recommendations based on how spread the types are
@@ -32,5 +33,3 @@ Compare Pokemon battle team
 Make team private/public
 11.  User can choose to make their team for public or private viewing.
 12. User can share their teams
-
-
