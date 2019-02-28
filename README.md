@@ -29,4 +29,4 @@ Make team private/public
     User can choose to make their team public or private.
 
 
-
+POKEMON API USED - https://pokeapi.co/
