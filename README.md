@@ -1,32 +1,36 @@
 # pokemon-team-client
-The idea is to create a Pokemon team builder that lets users filter and search for Pokemon to create a team balanced around typings.
+POKEMON API USED - https://pokeapi.co/
+Group Members - Kevin Ho, Joshua Vanderzee, Michael Koerber, Lei Garay, Andrew Simmons
 
+Elevator Pitch - The application is to help users design their Pokemon teams and compare their own team against other users. It will be focused on balancing and recommend removing as many type disadvantages.
 
 Edit Account Details:
-    User can change their login settings
+1.  User can change their login settings
 
 View Pokemon battle team:
-    User can view their or other user’s stored teams
-    User can rate other player’s teams (Up/down vote)
+2.  User can view their or other user’s stored teams
+3.  User can rate other player’s teams (Up/down vote)
 
 Search Pokemon:
-    User can search for specific Pokemon based on
-        -Type
-        -Game
-        -Evolutions
+4.  User can search for specific Pokemon based on
+    -Type
+    -Game
+    -Evolutions
 
 Create Pokemon Battle Team:
-    User can build a new Pokemon Battle Team.
-    Recommendations based on how spread the types are
+5.  User can build a new Pokemon Battle Team.
+6.  Recommendations based on how spread the types are
+7.  User can copy another user’s team
 
 Modify/edit pokemon battle team:
-User can modify current battle team by adding or dropping pokemon.
+8.  User can modify current battle team by adding or dropping Pokemon.
+9.  Get an average of weakness/strengths based on current Pokemon
 
 Compare Pokemon battle team
-    User can compare their current team with other users.
+10.  User can compare their current team with other users.
 
 Make team private/public
-    User can choose to make their team public or private.
+11.  User can choose to make their team for public or private viewing.
+12. User can share their teams
 
 
-POKEMON API USED - https://pokeapi.co/
