@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonTableComponent } from './components/pokemon-table/pokemon-table.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PokemonTableComponent
+    PokemonTableComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
