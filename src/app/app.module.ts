@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 // Services imports
 import { LoginService } from './services/login.service';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LoginService } from './services/login.service';
     AppComponent,
     LoginComponent,
     PokemonTableComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
