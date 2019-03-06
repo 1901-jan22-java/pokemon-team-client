@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-table.component.css']
 })
 export class PokemonTableComponent implements OnInit {
-  dtOptions: DataTables.Settings = {};
-  pokemon: Pokemon = new Pokemon();
+  //dtOptions: DataTables.Settings = {};
+  pokemon: Pokemon[] = [];
 
   constructor(private pService: PokemonService) { }
 
@@ -17,14 +17,12 @@ export class PokemonTableComponent implements OnInit {
     this.getPokemon();
   }
 
-  getPokemon(){
-    this.pokemon.id = 1;
-    console.log(`Id: ${this.pokemon.id}`);
-    this.pService.getPokemon(this.pokemon).subscribe(
+  getPokemon() {
+    this.pService.getPokemon(1).subscribe(
       resp => {
         if (resp != null) {
-          this.pokemon = resp as Pokemon;
           console.log(resp);
+          this.pokemon[0] = resp as Pokemon;
         } else {
           console.error('Error loading Users. Null value loaded');
         }
