@@ -10,7 +10,7 @@ export class PokemonTableComponent implements OnInit {
 
   ngOnInit():void {
     this.dtOptions = {
-      ajax: 'data/data.json',
+      ajax: 'https://pokeapi.co/api/v2/pokemon/',
       columns: [{
         title: 'ID',
         data: 'id'
