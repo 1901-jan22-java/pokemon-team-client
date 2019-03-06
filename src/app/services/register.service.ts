@@ -6,9 +6,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/jsom'})
 };
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RegisterService {
 
   url = `http://localhost:8085`;

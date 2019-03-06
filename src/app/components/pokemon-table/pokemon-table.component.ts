@@ -1,3 +1,5 @@
+import { Pokemon } from './../../models/Pokemon';
+import { PokemonService } from './../../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,20 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonTableComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
+  pokemon: Pokemon = new Pokemon();
 
-  ngOnInit():void {
-    this.dtOptions = {
-      ajax: 'https://pokeapi.co/api/v2/pokemon/',
-      columns: [{
-        title: 'ID',
-        data: 'id'
-      }, {
-        title: 'First name',
-        data: 'firstName'
-      }, {
-        title: 'Last name',
-        data: 'lastName'
-      }]
-    };
+  constructor(private pService: PokemonService) { }
+
+  ngOnInit() {
+    this.getPokemon();
+  }
+
+  getPokemon(){
+    this.pokemon.id = 1;
+    console.log(`Id: ${this.pokemon.id}`);
+    this.pService.getPokemon(this.pokemon).subscribe(
+      resp => {
+        if (resp != null) {
+          this.pokemon = resp as Pokemon;
+          console.log(resp);
+        } else {
+          console.error('Error loading Users. Null value loaded');
+        }
+      }
+    );
+
   }
 }

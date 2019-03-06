@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 // Services imports
 import { LoginService } from './services/login.service';
+import { PokemonService } from './services/pokemon.service';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LoginService } from './services/login.service';
     DataTablesModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    PokemonService
   ],
   bootstrap: [AppComponent]
 })
