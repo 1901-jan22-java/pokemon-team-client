@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-table.component.css']
 })
 export class PokemonTableComponent implements OnInit {
-  //dtOptions: DataTables.Settings = {};
+  dtOptions: DataTables.Settings = {};
   pokemon: Pokemon[] = [];
 
   constructor(private pService: PokemonService) { }
@@ -18,11 +18,13 @@ export class PokemonTableComponent implements OnInit {
   }
 
   getPokemon() {
-    this.pService.getPokemon(1).subscribe(
+
+
+    this.pService.getPokemonById(1).subscribe(
       resp => {
         if (resp != null) {
-          console.log(resp);
           this.pokemon[0] = resp as Pokemon;
+          console.log(this.pokemon[0]);
         } else {
           console.error('Error loading Users. Null value loaded');
         }

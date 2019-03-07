@@ -10,10 +10,10 @@
     <tbody>
       <tr *ngFor="let p of pokemon">
         <td>{{p.id}}</td>
-        <td>{{p.sprites}}</td>
+        <td><img [src]="p.sprites['front_default']" [alt]="p.name"></td>
         <td>{{p.name}}</td>
-        <td>{{p.type1}}</td>
-        <td>{{p.type2}}</td>
+        <td>{{p.types[0].type.name}}</td>
+        <td>{{p.types[1].type.name}}</td>
       </tr>
     </tbody>
   </table>

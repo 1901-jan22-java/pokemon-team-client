@@ -1,7 +1,6 @@
 export class Pokemon {
   id: number;
-  sprites: string;
+  sprites: object = {front_default: ''};
   name: string;
-  type1: string;
-  type2: string;
+  types: Array<object> = [{type: {name: '', url: ''}}, {type: {name: '', url: ''}}];
 }

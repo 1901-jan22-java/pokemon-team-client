@@ -12,7 +12,12 @@ export class PokemonService {
   url = `https://pokeapi.co/api/v2/pokemon`;
   constructor(private http: HttpClient) { }
 
-  public getPokemon(id: number) {
+  public getPokemonByName(name: string) {
+    console.log(`service Id: ${name}`);
+    return this.http.get(`${this.url}/${name}`, httpOptions);
+  }
+
+  public getPokemonById(id: number) {
     console.log(`service Id: ${id}`);
     return this.http.get(`${this.url}/${id}`, httpOptions);
   }
