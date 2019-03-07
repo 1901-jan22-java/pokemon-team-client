@@ -13,12 +13,10 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   public getPokemon(page: number) {
-    console.log(`service Id: ${page}`);
-    return this.http.get(`${this.url}/?id=20&`, httpOptions);
+    return this.http.get(`${this.url}/?offset=${(page - 1) * 10}&limit=10`, httpOptions);
   }
 
   public getPokemonByName(name: string) {
-    console.log(`service Id: ${name}`);
     return this.http.get(`${this.url}/${name}`, httpOptions);
   }
 
