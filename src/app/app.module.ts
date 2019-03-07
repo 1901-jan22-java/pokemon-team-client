@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonTableComponent } from './components/pokemon-table/pokemon-table.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 // Services imports
 import { LoginService } from './services/login.service';
@@ -20,7 +21,8 @@ import { LoginService } from './services/login.service';
     AppComponent,
     LoginComponent,
     PokemonTableComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
