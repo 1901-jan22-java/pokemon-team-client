@@ -13,7 +13,6 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   public getPokemon(page: number) {
-    console.log(`page: ${page * 10}`);
     return this.http.get(`${this.url}/?offset=${(page - 1) * 10}&limit=10`, httpOptions);
   }
 
