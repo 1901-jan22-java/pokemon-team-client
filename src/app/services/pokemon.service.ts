@@ -12,6 +12,11 @@ export class PokemonService {
   url = `https://pokeapi.co/api/v2/pokemon`;
   constructor(private http: HttpClient) { }
 
+  public getPokemon(page: number) {
+    console.log(`service Id: ${page}`);
+    return this.http.get(`${this.url}/?id=20&`, httpOptions);
+  }
+
   public getPokemonByName(name: string) {
     console.log(`service Id: ${name}`);
     return this.http.get(`${this.url}/${name}`, httpOptions);

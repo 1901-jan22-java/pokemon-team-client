@@ -17,16 +17,28 @@ export class PokemonTableComponent implements OnInit {
     this.getPokemon();
   }
 
+  listItemClicked(id) {
+    console.log(id);
+    console.log(this.pokemon.find(item => item.id === id).name);
+  }
+
   getPokemon() {
-
-
-    this.pService.getPokemonById(1).subscribe(
+    this.pService.getPokemon(1).subscribe(
       resp => {
         if (resp != null) {
-          this.pokemon[0] = resp as Pokemon;
-          console.log(this.pokemon[0]);
+          resp['results'].map(item => {
+            this.pService.getPokemonByName(item.name).subscribe(
+              resp2 => {
+                if (resp2 != null) {
+                  this.pokemon.push(resp2 as Pokemon);
+                } else {
+                  console.error('Error loading Pokemon. Null value loaded');
+                }
+              }
+            );
+          });
         } else {
-          console.error('Error loading Users. Null value loaded');
+          console.error('Error loading List. Null value loaded');
         }
       }
     );
