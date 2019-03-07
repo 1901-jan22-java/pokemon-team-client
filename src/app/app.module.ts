@@ -13,6 +13,8 @@ import { RegisterComponent } from './components/register/register.component';
 
 // Services imports
 import { LoginService } from './services/login.service';
+import { ProfileviewComponent } from './components/profileview/profileview.component';
+import { PokemonteamviewComponent } from './components/pokemonteamview/pokemonteamview.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { LoginService } from './services/login.service';
     AppComponent,
     LoginComponent,
     PokemonTableComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileviewComponent,
+    PokemonteamviewComponent
   ],
   imports: [
     BrowserModule,
