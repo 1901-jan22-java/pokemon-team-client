@@ -8,9 +8,9 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full'},
+    { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: 'login', component: LoginComponent},
-    { path: 'pokemon-table', component: PokemonTableComponent}, 
+    { path: 'pokemon-table', component: PokemonTableComponent},
     { path: 'register', component: RegisterComponent},
     { path: 'home', component: HomeComponent},
     { path: 'tutorial', component: TutorialComponent }
