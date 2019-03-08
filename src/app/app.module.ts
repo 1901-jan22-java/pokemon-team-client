@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginService } from './services/login.service';
 import { PokemonService } from './services/pokemon.service';
 import { HomeComponent } from './components/home/home.component';
+import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HomeComponent } from './components/home/home.component';
     PokemonTableComponent,
     RegisterComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    TutorialComponent
   ],
   imports: [
     BrowserModule,
