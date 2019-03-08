@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class PokemonTableComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   pokemon: Pokemon[] = [];
+  paginationProperty: string = 'page-item disabled';
+  paginationLength: number;
 
   constructor(private pService: PokemonService) { }
 
