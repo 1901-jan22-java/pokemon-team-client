@@ -62,6 +62,11 @@ export class PokemonTableComponent implements OnInit {
                 if (resp2 != null) {
                   this.pokemon.push(resp2 as Pokemon);
                   this.pokemon = this.pokemon.sort((a, b) => a.id - b.id);
+                  for (let pitem in this.pokemon) {
+                    if (this.pokemon[pitem].id < this.paginationPage * 5 - 5 || this.pokemon[pitem].id > this.paginationPage * 5) {
+                      this.pokemon.splice(Number.parseInt(pitem, 10), 1);
+                    }
+                  }
                 } else {
                   console.error('Error loading Pokemon. Null value loaded');
                 }
