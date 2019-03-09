@@ -2,14 +2,15 @@ import { Pokemon } from './../../models/Pokemon';
 import { PokemonService } from './../../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-pokemon-table',
   templateUrl: './pokemon-table.component.html',
   styleUrls: ['./pokemon-table.component.css']
 })
 
+
 export class PokemonTableComponent implements OnInit {
-  dtOptions: DataTables.Settings = {};
   pokemon: Pokemon[] = [];
   paginationLength = 0;
   paginationPage = 1;
@@ -50,6 +51,7 @@ export class PokemonTableComponent implements OnInit {
     this.getPokemon();
   }
 
+
   getPokemon() {
     this.pService.getPokemon(this.paginationPage).subscribe(
       resp => {
@@ -62,11 +64,6 @@ export class PokemonTableComponent implements OnInit {
                 if (resp2 != null) {
                   this.pokemon.push(resp2 as Pokemon);
                   this.pokemon = this.pokemon.sort((a, b) => a.id - b.id);
-                  for (let pitem in this.pokemon) {
-                    if (this.pokemon[pitem].id < this.paginationPage * 5 - 5 || this.pokemon[pitem].id > this.paginationPage * 5) {
-                      this.pokemon.splice(Number.parseInt(pitem, 10), 1);
-                    }
-                  }
                 } else {
                   console.error('Error loading Pokemon. Null value loaded');
                 }
@@ -78,6 +75,5 @@ export class PokemonTableComponent implements OnInit {
         }
       }
     );
-
   }
 }

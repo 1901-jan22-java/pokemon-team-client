@@ -19,6 +19,10 @@ import { PokemonService } from './services/pokemon.service';
 import { HomeComponent } from './components/home/home.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 
+// Pipes
+import { Filter } from './pipes/filter.pipe';
+
+//Observable
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
     RegisterComponent,
     HomeComponent,
     NavbarComponent,
-    TutorialComponent
+    TutorialComponent,
+    Filter
   ],
   imports: [
     BrowserModule,

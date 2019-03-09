@@ -1,6 +1,6 @@
-export class Pokemon {
+export interface Pokemon {
   id: number;
-  sprites: object = {front_default: ''};
+  sprites: object;
   name: string;
-  types: Array<object> = [{type: {name: '', url: ''}}, {type: {name: '', url: ''}}];
+  types: Array<object>;
 }
