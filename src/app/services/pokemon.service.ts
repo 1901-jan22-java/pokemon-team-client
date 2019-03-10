@@ -13,9 +13,15 @@ export class PokemonService {
   url = `https://pokeapi.co/api/v2/pokemon`;
   constructor(private http: HttpClient) { }
 
+/*
   public getPokemon(page: number) : Observable<any>{
     return this.http
             .get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 100}&limit=100`, httpOptions);
+  }
+*/
+  public getPokemon(page: number) : Observable<any>{
+    return this.http
+            .get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 964}&limit=964`, httpOptions);
   }
 
   public getPokemonByName(name: string) {

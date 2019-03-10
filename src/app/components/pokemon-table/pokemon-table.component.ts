@@ -21,6 +21,7 @@ export class PokemonTableComponent implements OnInit {
     this.getPokemon();
   }
 
+/*
   getPageinationLength(): Array<number> {
     const arr: number[] = [];
     const starting = (this.paginationPage - 1);
@@ -40,7 +41,8 @@ export class PokemonTableComponent implements OnInit {
     }
     return arr;
   }
-
+*/
+/*
   listItemClicked(id: number) {
     console.log(id);
     console.log(this.pokemon.find(item => item.id === id).name);
@@ -51,8 +53,9 @@ export class PokemonTableComponent implements OnInit {
     this.getPokemon();
   }
 
-
+*/
   getPokemon() {
+    this.pokemon = [];
     this.pService.getPokemon(this.paginationPage).subscribe(
       resp => {
         if (resp != null) {
