@@ -56,7 +56,6 @@ export class PokemonTableComponent implements OnInit {
     this.pService.getPokemon(this.paginationPage).subscribe(
       resp => {
         if (resp != null) {
-          this.pokemon = [];
           this.paginationLength = Math.ceil(resp['count'] as number / 5);
           resp['results'].map(item => {
             this.pService.getPokemonByName(item.name).subscribe(

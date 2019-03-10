@@ -20,7 +20,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 // Pipes
-import { Filter } from './pipes/filter.pipe';
+import { FilterByName } from './pipes/filterByName.pipe';
 
 //Observable
 
@@ -33,7 +33,7 @@ import { Filter } from './pipes/filter.pipe';
     HomeComponent,
     NavbarComponent,
     TutorialComponent,
-    Filter
+    FilterByName
   ],
   imports: [
     BrowserModule,

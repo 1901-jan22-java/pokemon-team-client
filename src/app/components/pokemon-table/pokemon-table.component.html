@@ -23,7 +23,7 @@
       <th>Type2</th>
     </thead>
     <tbody>
-      <tr *ngFor="let p of pokemon | filter : filterByName " (click)="listItemClicked(p.id)">
+      <tr *ngFor="let p of pokemon | filterByName : filterByName " (click)="listItemClicked(p.id)">
         <td>{{p.id}}</td>
         <td><img [src]="p.sprites['front_default']" [alt]="p.name"></td>
         <td>{{p.name}}</td>

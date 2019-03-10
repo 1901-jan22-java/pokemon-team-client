@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Pokemon } from '../models/Pokemon';
-import { PokemonTableComponent } from '../components/pokemon-table/pokemon-table.component';
 
 
-@Pipe({ name: "filter" })
-export class Filter implements PipeTransform {
+@Pipe({ name: "filterByName" })
+export class FilterByName implements PipeTransform {
   transform(itemList: Pokemon[], searchKeyword: string) {
     
     if (!itemList)
@@ -24,7 +23,12 @@ export class Filter implements PipeTransform {
             if (propValueList[i].toString().toLowerCase().indexOf(searchKeyword) > -1) {
               filteredList.push(item);
               break;
+            } else if(item.types.map(function(el){return el['type']['name'].includes(searchKeyword)})[0] ||
+                      item.types.map(function(el){return el['type']['name'].includes(searchKeyword)})[1]){
+              filteredList.push(item);
+              break;
             }
+            
           }
         }
       });
