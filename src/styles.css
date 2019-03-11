@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Karla', sans-serif;
+}
+
+span, p, li {
+    font-family: 'Lato', sans-serif;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.poke-red {
+    color: #ff0000;
+}
+
+.poke-yellow {
+    color: #ffde00;
+}
+
+.poke-blue {
+    color: #3b4cca
+}
+
+.poke-dark-red {
+    color: #cc0000;
+}
+
+.poke-gold {
+    color: #b3a125;
+}
