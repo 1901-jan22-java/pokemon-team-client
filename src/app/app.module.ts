@@ -21,6 +21,7 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 // Pipes
 import { FilterByName } from './pipes/filterByName.pipe';
+import { UserTeamComponent } from './components/user-team/user-team.component';
 
 //Observable
 
@@ -33,7 +34,8 @@ import { FilterByName } from './pipes/filterByName.pipe';
     HomeComponent,
     NavbarComponent,
     TutorialComponent,
-    FilterByName
+    FilterByName,
+    UserTeamComponent
   ],
   imports: [
     BrowserModule,
