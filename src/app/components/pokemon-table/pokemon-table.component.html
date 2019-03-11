@@ -1,6 +1,19 @@
-<div>
-    <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped">
-    <thead>
+<div class="jumbotron">
+  <nav aria-label="..." class="flex">
+    <ul class="pagination">
+      <li [class]="paginationPage > 1 ? 'page-item' : 'page-item disabled'">
+        <button (click)="pageChange(paginationPage - 1)" class="page-link">Previous</button>
+      </li>
+      <li *ngFor="let i of getPageinationLength()" [class]="i === paginationPage ? 'page-item active' : 'page-item'">
+        <button (click)="pageChange(i)" class="page-link">{{i}}</button>
+      </li>
+      <li [class]="paginationPage < paginationLength ? 'page-item' : 'page-item disabled'">
+        <button (click)="pageChange(paginationPage + 1)" class="page-link">Next</button>
+      </li>
+    </ul>
+  </nav>
+  <table datatable [dtOptions]="dtOptions" class="row-border hover table table-striped">
+    <thead class="thead-secondary">
       <th>Number</th>
       <th>Image</th>
       <th>Name</th>
