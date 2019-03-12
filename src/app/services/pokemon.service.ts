@@ -36,11 +36,35 @@ export class PokemonService {
   }
 
   public getPkmnWeakness(pkmn: Pokemon): Observable<string[]>{
-    let type1 = this.http.get<string[]>(`${pkmn.types.map(function(el){
-                                                          console.log("INSIDE THE GET REQUEST " + el['type']['url']);
-                                                          return el['type'];
+
+    let urlString:string[] = pkmn.types.map(function(el){return el['type']['url']});
+    let everyTypeInTeam: Type[] = [];
+   
+    for(let el of urlString){
+      let data = this.http.get<any>(el);
+      data.subscribe(resp => {
+        if (resp != null) {
+          let jsonObj:Type = JSON.parse(JSON.stringify(resp['damage_relations']));
+          console.log(jsonObj);
+          
+        }
+      })
+      console.log("el " + el);
+    }
+/**
+ *     type1.subscribe(data => {
+      pkmnType = data;
+      console.log(data);
+    });
+ */
+    
+/*    let type1 = this.http.get<string[]>(`${pkmn.types.map(function(el){
+                                                          console.log("INSIDE THE GET REQUEST " 
+                                                            + el['type']['url']);
+                                                          return el['type']['url'];
                                                         })}`, httpOptions);
 
+    console.log(type1);
     let pkmnType: string[] = [];
     type1.subscribe(data => {
       pkmnType = data;
@@ -49,7 +73,7 @@ export class PokemonService {
     
       console.log("TYPE1 " + type1);
     console.log("PKMNTYPE " + pkmnType);
-
-    return type1;
+*/
+    return null;
   }
 }
