@@ -22,6 +22,9 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
 // Pipes
 import { FilterByName } from './pipes/filterByName.pipe';
 import { UserTeamComponent } from './components/user-team/user-team.component';
+import { TeamComparatorComponent } from './components/team-comparator/team-comparator.component';
+import { SearchUserTableComponent } from './components/search-user-table/search-user-table.component';
+
 
 //Observable
 
@@ -35,7 +38,10 @@ import { UserTeamComponent } from './components/user-team/user-team.component';
     NavbarComponent,
     TutorialComponent,
     FilterByName,
-    UserTeamComponent
+    UserTeamComponent,
+    TeamComparatorComponent,
+    SearchUserTableComponent
+  
   ],
   imports: [
     BrowserModule,
