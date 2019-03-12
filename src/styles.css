@@ -57,3 +57,15 @@ span, p, li, a {
 .pointer {
     cursor: pointer;
 }
+
+.log-img {
+    background-image: url("/assets/machop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.reg-img {
+    background-image: url("/assets/machamp.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
