@@ -1,10 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+body {
+    margin: 10px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Karla', sans-serif;
 }
 
-span, p, li {
+h1 {
+    color: #cc0000;
+}
+
+span, p, li, a {
     font-family: 'Lato', sans-serif;
 }
 
@@ -35,7 +43,7 @@ span, p, li {
 }
 
 .poke-blue {
-    color: #3b4cca
+    color: #007BFF;
 }
 
 .poke-dark-red {
@@ -44,4 +52,8 @@ span, p, li {
 
 .poke-gold {
     color: #b3a125;
+}
+
+.pointer {
+    cursor: pointer;
 }
