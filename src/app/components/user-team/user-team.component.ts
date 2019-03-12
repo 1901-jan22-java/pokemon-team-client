@@ -19,9 +19,8 @@ export class UserTeamComponent implements OnInit {
    * squirtle   water
    * caterpie   bug
    * weedle     bug poison
-   * beedrill   poison bug
+   * gengar     ghost poison
    */
-
 
   constructor(private pService : PokemonService) { }
 
