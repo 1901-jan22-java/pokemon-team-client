@@ -35,7 +35,7 @@ export class PokemonService {
     return this.http.get<Pokemon>(`${this.url}/${id}`);
   }
 
-  public getPkmnWeakness(pkmn: Pokemon): Type[]{
+  public getPkmnStrAndWeak(pkmn: Pokemon): Type[]{
 
     let urlString:string[] = pkmn.types.map(function(el){return el['type']['url']});
     let everyTypeInTeam: Type[] = [];
@@ -45,7 +45,7 @@ export class PokemonService {
       data.subscribe(resp => {
         if (resp != null) {
           let jsonObj:Type = JSON.parse(JSON.stringify(resp['damage_relations']));
-          everyTypeInTeam.map(function(el){return el});
+          everyTypeInTeam.push(jsonObj);
         }
       })
     }

@@ -22,9 +22,9 @@ export class UserTeamComponent implements OnInit {
     console.log(this.pkmn);
   }
 
-  public getTeamWeakness() {
+  public getTeamStrAndWeak() {
     for(let i = 0; i < this.pkmn.length; i++)
-      this.pService.getPkmnWeakness(this.pkmn[i]);
+      console.log(this.pService.getPkmnStrAndWeak(this.pkmn[i]));
   }
 
   public getPkmnTeam(team: number[]) {
