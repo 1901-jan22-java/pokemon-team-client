@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Karla', sans-serif;
+}
+
+span, p, li, a {
+    font-family: 'Lato', sans-serif;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.white-title {
+    color: #fff;
+}
+
+.poke-red {
+    color: #ff0000;
+}
+
+.poke-yellow {
+    color: #ffde00;
+}
+
+.poke-blue {
+    color: #007BFF;
+}
+
+.poke-dark-red {
+    color: #cc0000;
+}
+
+.poke-gold {
+    color: #b3a125;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.log-img {
+    background-image: url("/assets/machop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.reg-img {
+    background-image: url("/assets/machamp.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-img {
+    background-image: url("/assets/lee.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
