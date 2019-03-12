@@ -23,8 +23,8 @@ export class PokemonService {
 */
   public getPokemon(page: number) : Observable<Pokemon[]>{
     return this.http
-//            .get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 964}&limit=964`, httpOptions);
-            .get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 10}&limit=10`);
+            .get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 964}&limit=964`, httpOptions);
+            //.get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 10}&limit=10`);
   }
 
   public getPokemonByName(name: string) : Observable<Pokemon> {
@@ -38,18 +38,60 @@ export class PokemonService {
   public getPkmnStrAndWeak(pkmn: Pokemon): Type[]{
 
     let urlString:string[] = pkmn.types.map(function(el){return el['type']['url']});
-    let everyTypeInTeam: Type[] = [];
+    let pkmnTypes: Type[] = [];
    
     for(let el of urlString){
       let data = this.http.get<any>(el);
       data.subscribe(resp => {
         if (resp != null) {
           let jsonObj:Type = JSON.parse(JSON.stringify(resp['damage_relations']));
-          everyTypeInTeam.push(jsonObj);
+          pkmnTypes.push(jsonObj);
         }
       })
     }
     
-    return everyTypeInTeam;
+    return pkmnTypes;
+  }
+
+  public getDoubleDamageTo(teamTypes: Type[][]): string[] {
+    let advantages:string[] = [];
+    for(let pkmn of teamTypes){
+      for(let pkmnTypes of pkmn){
+        for(let type of pkmnTypes['double_damage_to']){
+          if(advantages.indexOf(type['name']) < 0)
+            advantages.push(type['name']);
+        }
+      }
+    }
+    return advantages;
+  }
+
+  public getDoubleDamageFrom(teamTypes: Type[][]): string[] {
+    let weaknesses:string[] = [];
+    
+    for(let pkmn of teamTypes){
+      for(let pkmnTypes of pkmn){
+        for(let type of pkmnTypes['double_damage_from']){
+          if(weaknesses.indexOf(type['name']) < 0)
+          weaknesses.push(type['name']);
+        }
+      }
+    }
+    return weaknesses;
+  }
+  
+  public getNoDamageFrom(teamTypes: Type[][]): string[] {
+    let noDamageFrom:string[] = [];
+    
+    for(let pkmn of teamTypes){
+      for(let pkmnTypes of pkmn){
+        for(let type of pkmnTypes['no_damage_from']){
+          if(noDamageFrom.indexOf(type['name']) < 0)
+          noDamageFrom.push(type['name']);
+        }
+      }
+    }
+    console.log(noDamageFrom);
+    return noDamageFrom;
   }
 }

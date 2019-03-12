@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/Pokemon';
+import { Type } from 'src/app/models/Type';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -10,7 +11,17 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class UserTeamComponent implements OnInit {
 
   public pkmn:Array<Pokemon> = [];
-  public team = [1, 4, 7, 10, 13, 15];
+  public teamTypes:Array<Type[]> = [];
+  public team = [1, 4, 7, 10, 13, 94];
+  /**
+   * bulbasaur  grass poison
+   * charmander fire
+   * squirtle   water
+   * caterpie   bug
+   * weedle     bug poison
+   * beedrill   poison bug
+   */
+
 
   constructor(private pService : PokemonService) { }
 
@@ -23,8 +34,10 @@ export class UserTeamComponent implements OnInit {
   }
 
   public getTeamStrAndWeak() {
-    for(let i = 0; i < this.pkmn.length; i++)
-      console.log(this.pService.getPkmnStrAndWeak(this.pkmn[i]));
+    for(let i = 0; i < this.pkmn.length; i++){
+      this.teamTypes.push(this.pService.getPkmnStrAndWeak(this.pkmn[i]));
+    }
+    this.pService.getNoDamageFrom(this.teamTypes);
   }
 
   public getPkmnTeam(team: number[]) {
