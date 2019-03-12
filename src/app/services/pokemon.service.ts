@@ -80,6 +80,34 @@ export class PokemonService {
     return weaknesses;
   }
   
+  public getHalfDamageFrom(teamTypes: Type[][]): string[] {
+    let halfDamageFrom:string[] = [];
+    
+    for(let pkmn of teamTypes){
+      for(let pkmnTypes of pkmn){
+        for(let type of pkmnTypes['half_damage_from']){
+          if(halfDamageFrom.indexOf(type['name']) < 0)
+          halfDamageFrom.push(type['name']);
+        }
+      }
+    }
+    return halfDamageFrom;
+  }
+
+  public getHalfDamageTo(teamTypes: Type[][]): string[] {
+    let halfDamageTo:string[] = [];
+    
+    for(let pkmn of teamTypes){
+      for(let pkmnTypes of pkmn){
+        for(let type of pkmnTypes['half_damage_to']){
+          if(halfDamageTo.indexOf(type['name']) < 0)
+          halfDamageTo.push(type['name']);
+        }
+      }
+    }
+    return halfDamageTo;
+  }
+
   public getNoDamageFrom(teamTypes: Type[][]): string[] {
     let noDamageFrom:string[] = [];
     
@@ -91,7 +119,7 @@ export class PokemonService {
         }
       }
     }
-    console.log(noDamageFrom);
     return noDamageFrom;
   }
+
 }
