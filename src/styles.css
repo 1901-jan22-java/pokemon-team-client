@@ -24,10 +24,11 @@ span, p, li, a {
     align-items: flex-start;
 }
 
-.flex-right {
+.flex-row {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 15vh;
 }
 
 .white-title {
@@ -58,20 +59,20 @@ span, p, li, a {
     cursor: pointer;
 }
 
-.log-img {
-    background-image: url("/assets/machop.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.reg-img {
+.log-reg-img {
     background-image: url("/assets/machamp.jpg");
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .home-img {
-    background-image: url("/assets/lee.jpg");
+    background-image: url("/assets/machop.jpg");
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.tut-img {
+    background-image: url("/assets/wartortle.jpg") !important;
+    background-position: center;
+    background-repeat: repeat;
 }

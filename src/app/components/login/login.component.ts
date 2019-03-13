@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    document.body.classList.add('log-img');
+    document.body.classList.add('log-reg-img');
   }
 
 }

@@ -3,7 +3,12 @@ h2 {
 }
 
 img {
-    height: 500px;
+    height: 450px;
+}
+
+.title {
+  font-size: 12vh;
+  font-family: 'Karla', sans-serif;
 }
 
 .carousel-control-prev-icon,
