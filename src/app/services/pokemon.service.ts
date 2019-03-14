@@ -1,6 +1,6 @@
 import { Pokemon } from './../models/Pokemon';
 import { Type } from '../models/Type'
-import { Types } from '../models/Types'
+import { Advantages } from '../models/Advantages'
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs'; 
@@ -35,7 +35,7 @@ export class PokemonService {
     return this.http.get<Pokemon>(`${this.url}/${id}`);
   }
 
-  public getPkmnStrAndWeak(pkmn: Pokemon): Type[]{
+  public getPkmnTypes(pkmn: Pokemon): Type[]{
 
     let urlString:string[] = pkmn.types.map(function(el){return el['type']['url']});
     let pkmnTypes: Type[] = [];
@@ -49,77 +49,205 @@ export class PokemonService {
         }
       })
     }
-    
     return pkmnTypes;
   }
 
-  public getDoubleDamageTo(teamTypes: Type[][]): string[] {
-    let advantages:string[] = [];
+  public getDoubleDamageTo(teamTypes: Type[][]): Advantages[] {
+    let result:Advantages[] = [];
+    let existingTypes: string[] = [];
+
     for(let pkmn of teamTypes){
       for(let pkmnTypes of pkmn){
         for(let type of pkmnTypes['double_damage_to']){
-          if(advantages.indexOf(type['name']) < 0)
-            advantages.push(type['name']);
+          if(existingTypes.indexOf(type['name']) < 0){
+            existingTypes.push(type['name']);
+            result.push({
+              name: type['name'],
+              multiplier: 2
+            });
+          }
+          else {
+            result[existingTypes.indexOf(type['name'])]['multiplier'] *= 2;
+          }
         }
       }
     }
-    return advantages;
+    return result;
   }
 
-  public getDoubleDamageFrom(teamTypes: Type[][]): string[] {
-    let weaknesses:string[] = [];
-    
+  public getDoubleDamageFrom(teamTypes: Type[][]): Advantages[] {
+    let result:Advantages[] = [];
+    let existingTypes: string[] = [];
+
     for(let pkmn of teamTypes){
       for(let pkmnTypes of pkmn){
         for(let type of pkmnTypes['double_damage_from']){
-          if(weaknesses.indexOf(type['name']) < 0)
-          weaknesses.push(type['name']);
+          if(existingTypes.indexOf(type['name']) < 0){
+            existingTypes.push(type['name']);
+            result.push({
+              name: type['name'],
+              multiplier: 2
+            });
+          }
+          else {
+            result[existingTypes.indexOf(type['name'])]['multiplier'] *= 2;
+          }
         }
       }
     }
-    return weaknesses;
+    return result;
   }
   
-  public getHalfDamageFrom(teamTypes: Type[][]): string[] {
-    let halfDamageFrom:string[] = [];
-    
+  public getHalfDamageFrom(teamTypes: Type[][]): Advantages[] {
+    let result:Advantages[] = [];
+    let existingTypes: string[] = [];
+
     for(let pkmn of teamTypes){
       for(let pkmnTypes of pkmn){
         for(let type of pkmnTypes['half_damage_from']){
-          if(halfDamageFrom.indexOf(type['name']) < 0)
-          halfDamageFrom.push(type['name']);
+          if(existingTypes.indexOf(type['name']) < 0){
+            existingTypes.push(type['name']);
+            result.push({
+              name: type['name'],
+              multiplier: 0.5
+            });
+          }
+          else {
+            result[existingTypes.indexOf(type['name'])]['multiplier'] *= 0.5;
+          }
         }
       }
     }
-    return halfDamageFrom;
+    return result;
   }
 
-  public getHalfDamageTo(teamTypes: Type[][]): string[] {
-    let halfDamageTo:string[] = [];
-    
+  public getHalfDamageTo(teamTypes: Type[][]): Advantages[] {
+    let result:Advantages[] = [];
+    let existingTypes: string[] = [];
+
     for(let pkmn of teamTypes){
       for(let pkmnTypes of pkmn){
         for(let type of pkmnTypes['half_damage_to']){
-          if(halfDamageTo.indexOf(type['name']) < 0)
-          halfDamageTo.push(type['name']);
+          if(existingTypes.indexOf(type['name']) < 0){
+            existingTypes.push(type['name']);
+            result.push({
+              name: type['name'],
+              multiplier: 0.5
+            });
+          }
+          else {
+            result[existingTypes.indexOf(type['name'])]['multiplier'] *= 0.5;
+          }
         }
       }
     }
-    return halfDamageTo;
+    return result;
   }
 
-  public getNoDamageFrom(teamTypes: Type[][]): string[] {
-    let noDamageFrom:string[] = [];
-    
+  public getNoDamageTo(teamTypes: Type[][]): Advantages[] {
+    let result:Advantages[] = [];
+    let existingTypes: string[] = [];
+
+    for(let pkmn of teamTypes){
+      for(let pkmnTypes of pkmn){
+        for(let type of pkmnTypes['no_damage_to']){
+          if(existingTypes.indexOf(type['name']) < 0){
+            existingTypes.push(type['name']);
+            result.push({
+              name: type['name'],
+              multiplier: 0
+            });
+          }
+          else {
+            result[existingTypes.indexOf(type['name'])]['multiplier'] = 0;
+          }
+        }
+      }
+    }
+    return result;
+  }
+
+  public getNoDamageFrom(teamTypes: Type[][]): Advantages[] {
+    let result:Advantages[] = [];
+    let existingTypes: string[] = [];
+
     for(let pkmn of teamTypes){
       for(let pkmnTypes of pkmn){
         for(let type of pkmnTypes['no_damage_from']){
-          if(noDamageFrom.indexOf(type['name']) < 0)
-          noDamageFrom.push(type['name']);
+          if(existingTypes.indexOf(type['name']) < 0){
+            existingTypes.push(type['name']);
+            result.push({
+              name: type['name'],
+              multiplier: 0
+            });
+          }
+          else {
+            result[existingTypes.indexOf(type['name'])]['multiplier'] = 0;
+          }
         }
       }
     }
-    return noDamageFrom;
+    return result;
+  }
+  
+  public damageTo(teamTypes: Type[][]) : Advantages[] {
+    let teamSummary:Advantages[] = [];
+
+    let doubleDamageTo = this.getDoubleDamageTo(teamTypes);
+    let halfDamageTo   = this.getHalfDamageTo(teamTypes);
+    let noDamageTo   = this.getNoDamageTo(teamTypes);
+    
+    for(let i = 0; i < doubleDamageTo.length; i++){
+      for(let j = 0; j < halfDamageTo.length; j++){
+        if((doubleDamageTo[i].name).indexOf(halfDamageTo[j].name) > -1){
+          let number: number = doubleDamageTo[i].multiplier * halfDamageTo[j].multiplier;
+          
+          if(number != 1)
+            teamSummary.push({name:doubleDamageTo[i].name, multiplier:number});
+        }
+      }
+    }
+
+    for(let type of noDamageTo){
+      if(teamSummary.find(x => x.name === type.name) === undefined){
+        teamSummary.push(type);
+      }
+      else {
+        teamSummary.find(x => x.name === type.name).multiplier = type.multiplier;
+      }
+    }
+
+    return teamSummary;
+  }
+
+  public damageFrom(teamTypes: Type[][]) : Advantages[] {
+    let teamSummary:Advantages[] = [];
+
+    let doubleDamageFrom = this.getDoubleDamageFrom(teamTypes);
+    let halfDamageFrom   = this.getHalfDamageFrom(teamTypes);
+    let noDamageFrom   = this.getNoDamageFrom(teamTypes);
+    
+    for(let i = 0; i < doubleDamageFrom.length; i++){
+      for(let j = 0; j < halfDamageFrom.length; j++){
+        if((doubleDamageFrom[i].name).indexOf(halfDamageFrom[j].name) > -1){
+          let number: number = doubleDamageFrom[i].multiplier * halfDamageFrom[j].multiplier;
+          
+          if(number != 1)
+            teamSummary.push({name:doubleDamageFrom[i].name, multiplier:number});
+        }
+      }
+    }
+
+    for(let type of noDamageFrom){
+      if(teamSummary.find(x => x.name === type.name) === undefined){
+        teamSummary.push(type);
+      }
+      else {
+        teamSummary.find(x => x.name === type.name).multiplier = type.multiplier;
+      }
+    }
+
+    return teamSummary;
   }
 
 }

@@ -12,9 +12,9 @@ export class UserTeamComponent implements OnInit {
 
   public pkmn:Array<Pokemon> = [];
   public teamTypes:Array<Type[]> = [];
-  public team = [1, 4, 7, 10, 13, 94];
+  public team = [252, 4, 7, 10, 13, 94];
   /**
-   * bulbasaur  grass poison
+   * treecko    grass
    * charmander fire
    * squirtle   water
    * caterpie   bug
@@ -32,11 +32,13 @@ export class UserTeamComponent implements OnInit {
     console.log(this.pkmn);
   }
 
-  public getTeamStrAndWeak() {
+  public getTeamTypes() {
     for(let i = 0; i < this.pkmn.length; i++){
-      this.teamTypes.push(this.pService.getPkmnStrAndWeak(this.pkmn[i]));
+      this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
     }
-    this.pService.getNoDamageFrom(this.teamTypes);
+
+    this.pService.damageTo(this.teamTypes);
+    this.pService.damageFrom(this.teamTypes);
   }
 
   public getPkmnTeam(team: number[]) {
@@ -45,4 +47,5 @@ export class UserTeamComponent implements OnInit {
         .subscribe(data => this.pkmn.push(data));
     }
   }
+
 }
