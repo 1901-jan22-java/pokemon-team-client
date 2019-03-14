@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/Pokemon';
 import { Type } from 'src/app/models/Type';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { Advantages } from 'src/app/models/Advantages';
 
 @Component({
   selector: 'app-user-team',
@@ -36,9 +37,6 @@ export class UserTeamComponent implements OnInit {
     for(let i = 0; i < this.pkmn.length; i++){
       this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
     }
-
-    this.pService.damageTo(this.teamTypes);
-    this.pService.damageFrom(this.teamTypes);
   }
 
   public getPkmnTeam(team: number[]) {
@@ -48,4 +46,11 @@ export class UserTeamComponent implements OnInit {
     }
   }
 
+  public getDamageTo(teamTypes: Type[][]): Advantages[]{
+    return this.pService.damageTo(teamTypes);
+  }
+
+  public getDamageFrom(teamTypes: Type[][]): Advantages[]{
+    return this.pService.damageFrom(teamTypes);
+  }
 }
