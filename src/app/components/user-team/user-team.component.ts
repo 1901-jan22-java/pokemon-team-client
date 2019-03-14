@@ -34,16 +34,14 @@ export class UserTeamComponent implements OnInit {
   }
 
   public getTeamTypes() {
-    for(let i = 0; i < this.pkmn.length; i++){
+    for(let i = 0; i < this.pkmn.length; i++)
       this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
-    }
   }
 
   public getPkmnTeam(team: number[]) {
-    for(let i = 0; i < team.length; i++){
+    for(let i = 0; i < team.length; i++)
       this.pService.getPokemonById(team[i])
         .subscribe(data => this.pkmn.push(data));
-    }
   }
 
   public getDamageTo(teamTypes: Type[][]): Advantages[]{
