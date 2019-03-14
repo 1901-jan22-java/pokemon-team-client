@@ -26,6 +26,7 @@ export class UserTeamComponent implements OnInit {
 
   ngOnInit(){
     this.getPkmnTeam(this.team);
+    document.body.classList.add('team-img');
   }
 
   public getTeam() {

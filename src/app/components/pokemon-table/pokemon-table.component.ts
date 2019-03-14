@@ -19,6 +19,7 @@ export class PokemonTableComponent implements OnInit {
 
   ngOnInit() {
     this.getPokemon();
+    document.body.classList.add('table-img');
   }
 
 /*

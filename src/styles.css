@@ -76,3 +76,16 @@ span, p, li, a {
     background-position: center;
     background-repeat: repeat;
 }
+
+.team-img {
+    background-image: url("/assets/dewgong.jpg");
+    height: 110vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.table-img {
+    background-image: url("/assets/aerodactyl.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
