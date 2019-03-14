@@ -1,0 +1,13 @@
+img {
+    height: 300px;
+    width: auto;
+}
+
+.tut-img {
+    height: auto;
+}
+
+.card {
+    margin-left: 100px !important;
+    margin-bottom: 30px;
+}

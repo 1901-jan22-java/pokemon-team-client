@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    document.body.classList.add('reg-img');
+    document.body.classList.add('log-reg-img');
   }
 
   
