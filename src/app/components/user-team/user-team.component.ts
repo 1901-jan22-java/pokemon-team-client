@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/Pokemon';
 import { Type } from 'src/app/models/Type';
+import { Advantages } from 'src/app/models/Advantages';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -32,20 +33,31 @@ export class UserTeamComponent implements OnInit {
     console.log(this.pkmn);
   }
 
-  public getTeamTypes() {
-    for(let i = 0; i < this.pkmn.length; i++){
-      this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
-    }
-
-    this.pService.damageTo(this.teamTypes);
-    this.pService.damageFrom(this.teamTypes);
-  }
-
+  /**
+   * gets back a pokemon team based on an array of IDs
+   */
   public getPkmnTeam(team: number[]) {
     for(let i = 0; i < team.length; i++){
       this.pService.getPokemonById(team[i])
         .subscribe(data => this.pkmn.push(data));
     }
   }
+  
+  public getTeamTypes() {
+    for(let i = 0; i < this.pkmn.length; i++){
+      this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
+    }
 
+    this.getDamageFrom(this.teamTypes);
+  }
+
+  public getDamageTo(teamTypes: Type[][]) : Advantages[]{
+    console.log(this.pService.damageTo(teamTypes));
+    return this.pService.damageTo(teamTypes);
+  }
+
+  public getDamageFrom(teamTypes: Type[][]) : Advantages[]{
+    console.log(this.pService.damageFrom(teamTypes));
+    return this.pService.damageFrom(teamTypes);
+  }
 }

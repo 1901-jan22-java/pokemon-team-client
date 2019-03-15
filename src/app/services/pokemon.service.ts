@@ -250,4 +250,13 @@ export class PokemonService {
     return teamSummary;
   }
 
+  public getPkmnObject(pkmn: Pokemon) {
+    return {
+      id: pkmn.id,
+      PokemonNumber: pkmn.PokemonNumber,
+      PokemonName: pkmn.PokemonName,
+      PokemonType1: pkmn.types[0]['name'],
+      PokemonType2: pkmn.types[1]['name']
+    }
+  }
 }

@@ -2,7 +2,7 @@ import { Types } from './Types';
 
 export interface Pokemon {
   id: number;
-  sprites: object;
-  name: string;
+  PokemonNumber: number;
+  PokemonName: string;
   types: Types[];
 }
