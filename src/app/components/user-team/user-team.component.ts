@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from 'src/app/models/Pokemon';
-import { Type } from 'src/app/models/Type';
-import { Advantages } from 'src/app/models/Advantages';
-import { PokemonService } from 'src/app/services/pokemon.service';
+import { Pokemon } from '../../models/Pokemon';
+import { Type } from '../../models/Type';
+import { Advantages } from '../../models/Advantages';
+import { PokemonService } from '../../services/pokemon.service';
+import { SpringCommService } from '../../services/spring-comm.service';
 
 @Component({
   selector: 'app-user-team',
@@ -23,7 +24,8 @@ export class UserTeamComponent implements OnInit {
    * gengar     ghost poison
    */
 
-  constructor(private pService : PokemonService) { }
+  constructor(private pService : PokemonService, 
+              private sCommService: SpringCommService) { }
 
   ngOnInit(){
     this.getPkmnTeam(this.team);
@@ -47,8 +49,6 @@ export class UserTeamComponent implements OnInit {
     for(let i = 0; i < this.pkmn.length; i++){
       this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
     }
-
-    this.getDamageFrom(this.teamTypes);
   }
 
   public getDamageTo(teamTypes: Type[][]) : Advantages[]{
@@ -59,5 +59,10 @@ export class UserTeamComponent implements OnInit {
   public getDamageFrom(teamTypes: Type[][]) : Advantages[]{
     console.log(this.pService.damageFrom(teamTypes));
     return this.pService.damageFrom(teamTypes);
+  }
+
+  public test(){
+    this.getTeamTypes();
+    
   }
 }

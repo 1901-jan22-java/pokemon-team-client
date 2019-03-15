@@ -2,13 +2,13 @@
     <h1 class="white-title">Log In</h1>
     <br>
     <br>
-    <input type="text" id="username" placeholder="Username" class="form-control col-3">
+    <input type="text" [(ngModel)]="username" placeholder="Username" class="form-control col-3">
     <br>
     <br>
-    <input type="password" id="pw" placeholder="Password" class="form-control col-3">
+    <input type="password" [(ngModel)]="password" placeholder="Password" class="form-control col-3">
     <br>
     <br>
-    <button id="logIn" class="btn-lg pointer">Go!</button>
+    <button id="logIn" class="btn-lg pointer" (click)="login()">Go!</button>
     <br>
     <span><i>Don't have an account? Create one <a class="poke-red" id="signUp" href="/register">here</a></i></span>
 </div>

@@ -24,6 +24,7 @@ import { FilterByName } from './pipes/filterByName.pipe';
 import { UserTeamComponent } from './components/user-team/user-team.component';
 import { TeamComparatorComponent } from './components/team-comparator/team-comparator.component';
 import { SearchUserTableComponent } from './components/search-user-table/search-user-table.component';
+import { SpringCommService } from './services/spring-comm.service';
 
 
 //Observable
@@ -52,7 +53,8 @@ import { SearchUserTableComponent } from './components/search-user-table/search-
   ],
   providers: [
     LoginService,
-    PokemonService
+    PokemonService,
+    SpringCommService
   ],
   bootstrap: [AppComponent]
 })
