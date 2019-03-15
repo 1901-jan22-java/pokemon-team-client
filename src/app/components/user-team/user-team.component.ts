@@ -36,6 +36,7 @@ export class UserTeamComponent implements OnInit {
   public getTeamTypes() {
     for(let i = 0; i < this.pkmn.length; i++)
       this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
+    console.log(this.teamTypes);
   }
 
   public getPkmnTeam(team: number[]) {
@@ -45,10 +46,12 @@ export class UserTeamComponent implements OnInit {
   }
 
   public getDamageTo(teamTypes: Type[][]): Advantages[]{
+    console.log(this.pService.damageTo(teamTypes));
     return this.pService.damageTo(teamTypes);
   }
 
   public getDamageFrom(teamTypes: Type[][]): Advantages[]{
+    console.log(this.pService.damageFrom(teamTypes));
     return this.pService.damageFrom(teamTypes);
   }
 }
