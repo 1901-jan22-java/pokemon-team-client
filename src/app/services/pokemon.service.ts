@@ -259,4 +259,5 @@ export class PokemonService {
       PokemonType2: pkmn.types[1]['name']
     }
   }
+
 }
