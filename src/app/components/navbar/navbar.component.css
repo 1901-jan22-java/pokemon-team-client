@@ -1,6 +1,10 @@
-.nav {
+.navbar {
     border-bottom: 1px solid #000 !important;
     margin-bottom: 1vh !important;
+}
+
+.nav li {
+    padding-top: 1vh;
 }
 
 .nav a{
