@@ -4,11 +4,11 @@ import { Pokemon } from './Pokemon';
 
 export class PkmnTeam {
     id: number;
-    trainer: PkUser;
-    slot1: Pokemon;
-    slot2: Pokemon;
-    slot3: Pokemon;
-    slot4: Pokemon;
-    slot5: Pokemon;
-    slot6: Pokemon;
+    trainer: any;
+    slot1: any;
+    slot2: any;
+    slot3: any;
+    slot4: any;
+    slot5: any;
+    slot6: any;
 }

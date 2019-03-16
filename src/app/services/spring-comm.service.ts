@@ -28,6 +28,4 @@ export class SpringCommService {
     return this.http.post<PkmnTeam>(`${this.url}/teams/getAll`, 
                 pokemonTrainer, httpOptions);
   }
-
-  
 }

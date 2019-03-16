@@ -22,9 +22,8 @@ export class LoginService {
       username: uname, 
       password: pass
     };
-    let result = this.http.post<PkmnTeam>(`${this.url}/login`, trainer, httpOptions);
-    console.log(result);
-    return result;
+    
+    return this.http.post<PkmnTeam>(`${this.url}/login`, trainer, httpOptions);
   }
 
   private getUsers(){

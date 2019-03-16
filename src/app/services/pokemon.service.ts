@@ -4,27 +4,23 @@ import { Advantages } from '../models/Advantages'
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs'; 
+import { PkmnTeam } from '../models/PkmnTeam';
+import { PkUser } from '../models/PkUsers';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/jsom'})
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable()
 export class PokemonService {
 
   url = `https://pokeapi.co/api/v2/pokemon`;
+
   constructor(private http: HttpClient) { }
 
-/*
-  public getPokemon(page: number) : Observable<any>{
-    return this.http
-            .get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 100}&limit=100`, httpOptions);
-  }
-*/
   public getPokemon(page: number) : Observable<Pokemon[]>{
     return this.http
             .get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 964}&limit=964`, httpOptions);
-            //.get<Pokemon[]>(`${this.url}/?offset=${(page - 1) * 10}&limit=10`);
   }
 
   public getPokemonByName(name: string) : Observable<Pokemon> {
@@ -251,13 +247,53 @@ export class PokemonService {
   }
 
   public getPkmnObject(pkmn: Pokemon) {
-    return {
-      id: pkmn.id,
-      PokemonNumber: pkmn.PokemonNumber,
-      PokemonName: pkmn.PokemonName,
-      PokemonType1: pkmn.types[0]['name'],
-      PokemonType2: pkmn.types[1]['name']
-    }
+    if(pkmn.types.length == 1)
+      return {
+        id: pkmn.id,
+        PokemonNumber: pkmn.PokemonNumber,
+        PokemonName: pkmn.PokemonName,
+        PokemonType1: pkmn.types[0]['name']
+      };
+    else
+      return {
+        id: pkmn.id,
+        PokemonNumber: pkmn.PokemonNumber,
+        PokemonName: pkmn.PokemonName,
+        PokemonType1: pkmn.types[0]['name'],
+        PokemonType2: pkmn.types[1]['name']
+      };
   }
 
+  public addPkmn(user:PkUser, pkmn: Pokemon[]) : Observable<PkmnTeam>{
+    let jsonstring = {
+      trainer: {
+          id:user['id'],
+          username:user['username']
+      },
+      slot1: {
+          id: 1,
+          pokemonNumber: 94,
+          pokemonName: 'Gengar',
+          pokemonPicture: 'image',
+          pokemonType: 'poison',
+          pokemonType2: 'ghost'
+      },
+      slot2: {
+          id: 2,
+          pokemonNumber: 132,
+          pokemonName: 'ditto',
+          pokemonPicture: 'image',
+          pokemonType: 'normal'
+      },
+      slot3: {
+          pokemonType: 'electric',
+          pokemonType2: null,
+          pokemonNumber: 25,
+          pokemonName: 'pikachu',
+          pokemonPicture: 'image'
+      }
+  };
+  console.log(jsonstring);
+  return this.http.post<PkmnTeam>('http://localhost:8080/pokemon-team/teams', jsonstring, httpOptions);
+  }
 }

@@ -4,6 +4,7 @@ import { Type } from '../../models/Type';
 import { Advantages } from '../../models/Advantages';
 import { PokemonService } from '../../services/pokemon.service';
 import { SpringCommService } from '../../services/spring-comm.service';
+import { PkUser } from '../../models/PkUsers';
 
 @Component({
   selector: 'app-user-team',
@@ -15,6 +16,13 @@ export class UserTeamComponent implements OnInit {
   public pkmn:Array<Pokemon> = [];
   public teamTypes:Array<Type[]> = [];
   public team = [252, 4, 7, 10, 13, 94];
+  public user = {
+    id: 4,
+    username: "user",
+    password: "pass",
+    firstName: "Kevin",
+    lastName: "Ho"
+  };
   /**
    * treecko    grass
    * charmander fire
@@ -45,6 +53,10 @@ export class UserTeamComponent implements OnInit {
     }
   }
   
+  public registerPkmnTeam(user, pkmn){
+    console.log(this.pService.addPkmn(user, pkmn));
+  }
+
   public getTeamTypes() {
     for(let i = 0; i < this.pkmn.length; i++){
       this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
@@ -63,6 +75,8 @@ export class UserTeamComponent implements OnInit {
 
   public test(){
     this.getTeamTypes();
-    
+ //   console.log(this.pkmn);
+
+    this.registerPkmnTeam(this.user, this.pkmn);
   }
 }
