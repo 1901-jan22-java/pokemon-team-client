@@ -208,14 +208,11 @@ export class PokemonService {
       }
     }
 
-    for(let type of noDamageTo){
-      if(teamSummary.find(x => x.name === type.name) === undefined){
+    for(let type of noDamageTo)
+      if(teamSummary.find(x => x.name === type.name) === undefined)
         teamSummary.push(type);
-      }
-      else {
+      else 
         teamSummary.find(x => x.name === type.name).multiplier = type.multiplier;
-      }
-    }
 
     return teamSummary;
   }
@@ -238,16 +235,12 @@ export class PokemonService {
       }
     }
 
-    for(let type of noDamageFrom){
-      if(teamSummary.find(x => x.name === type.name) === undefined){
+    for(let type of noDamageFrom)
+      if(teamSummary.find(x => x.name === type.name) === undefined)
         teamSummary.push(type);
-      }
-      else {
+      else 
         teamSummary.find(x => x.name === type.name).multiplier = type.multiplier;
-      }
-    }
 
     return teamSummary;
   }
-
 }
