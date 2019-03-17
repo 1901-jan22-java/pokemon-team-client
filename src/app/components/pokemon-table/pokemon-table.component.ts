@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class PokemonTableComponent implements OnInit {
   pokemon: Pokemon[] = [];
+  userTeam: Pokemon[] = [];
   paginationLength = 0;
   paginationPage = 1;
 
@@ -42,18 +43,17 @@ export class PokemonTableComponent implements OnInit {
     return arr;
   }
 */
-/*
-  listItemClicked(id: number) {
-    console.log(id);
-    console.log(this.pokemon.find(item => item.id === id).name);
-  }
 
+  listItemClicked(id: number) {
+    if(this.userTeam.length < 6)
+      this.userTeam.push(this.pokemon.find(item => item.id === id));
+    console.log(this.userTeam);
+  }
+/*
   pageChange(page: number) {
     this.paginationPage = page;
     this.getPokemon();
-  }
-
-*/
+  }*/
   getPokemon() {
     this.pokemon = [];
     this.pService.getPokemon(this.paginationPage).subscribe(

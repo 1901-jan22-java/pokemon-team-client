@@ -15,7 +15,6 @@ export class UserTeamComponent implements OnInit {
 
   public pkmn:Array<Pokemon> = [];
   public teamTypes:Array<Type[]> = [];
-  public team = [252, 4, 7, 10, 13, 94];
   public user = {
     id: 4,
     username: "user",
@@ -36,7 +35,6 @@ export class UserTeamComponent implements OnInit {
               private sCommService: SpringCommService) { }
 
   ngOnInit(){
-    this.getPkmnTeam(this.team);
   }
 
   public getTeam() {
@@ -75,8 +73,6 @@ export class UserTeamComponent implements OnInit {
   }
 
   public test(){
-//    console.log(this.pkmn);
-
     this.registerPkmnTeam(this.user, this.pkmn);
   }
 }
