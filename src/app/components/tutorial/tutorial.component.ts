@@ -10,7 +10,7 @@ export class TutorialComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    document.body.classList.add('tut-img');
+    document.body.classList.add('non-img');
   }
 
 }

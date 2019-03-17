@@ -71,10 +71,11 @@ span, p, li, a {
     background-repeat: no-repeat;
 }
 
-.tut-img {
-    background-image: url("/assets/wartortle.jpg") !important;
-    background-position: center;
-    background-repeat: repeat;
+.non-img {
+    /* background-image: url("/assets/aerodactyl.jpg") !important; */
+    background-color: #A6C7CE;
+    /* background-position: center; */
+    /* background-repeat: repeat; */
 }
 
 .team-img {
