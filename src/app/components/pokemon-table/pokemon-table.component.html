@@ -14,6 +14,13 @@
     </ul>
   </nav>
 -->
+
+  <div>
+    <ol>
+      <li *ngFor="let u of userTeam"></li>
+    </ol>
+  </div>
+
   <div>
     Filter by Name or Type 
     <input type="text" [(ngModel)]="filterByName" value="Filter">
