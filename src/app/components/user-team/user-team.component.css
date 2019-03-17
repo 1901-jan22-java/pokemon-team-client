@@ -1,0 +1,17 @@
+.teams {
+    height: 75vh;
+    width: auto;
+    margin: 0 20px;
+    border: 1px solid #000;
+}
+
+.ind-teams {
+    display: flex;
+    flex-direction: row;
+}
+
+.ind-pokemon {
+    height: 20vh;
+    width: 20vw;
+    border: 1px solid #000;
+}
