@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SpringCommService } from './spring-comm.service';
 import { PkmnTeam } from '../models/PkmnTeam';
-import { PkUser } from '../models/PkUsers';
 
 import { Observable } from 'rxjs';
 

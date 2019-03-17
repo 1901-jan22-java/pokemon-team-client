@@ -264,36 +264,63 @@ export class PokemonService {
       };
   }
 
-  public addPkmn(user:PkUser, pkmn: Pokemon[]) : Observable<PkmnTeam>{
+  public addPkmn(user :PkUser, pkmn :Pokemon[]) : Observable<PkmnTeam>{ 
+    
+    for(let i of pkmn){
+      console.log(i);
+    }
+
     let jsonstring = {
-      trainer: {
-          id:user['id'],
-          username:user['username']
+      trainer: { 
+        id: user['id'], 
+        username: user['username'] 
       },
       slot1: {
-          id: 1,
-          pokemonNumber: 94,
-          pokemonName: 'Gengar',
-          pokemonPicture: 'image',
-          pokemonType: 'poison',
-          pokemonType2: 'ghost'
+        pokemonNumber   : pkmn[0]['id'],
+        pokemonName     : pkmn[0]['name'],
+        pokemonPicture  : pkmn[0]['sprites']['front_default'],
+        pokemonType     : pkmn[0]['types'][0]['type']['name'],
+        pokemonType2    : pkmn[0]['types'][1]['type']['name']
       },
       slot2: {
-          id: 2,
-          pokemonNumber: 132,
-          pokemonName: 'ditto',
-          pokemonPicture: 'image',
-          pokemonType: 'normal'
+        pokemonNumber   : pkmn[1]['id'],
+        pokemonName     : pkmn[1]['name'],
+        pokemonPicture  : pkmn[1]['sprites']['front_default'],
+        pokemonType     : pkmn[1]['types'][0]['type']['name'],
+        pokemonType2    : pkmn[1]['types'][1]['type']['name']
       },
       slot3: {
-          pokemonType: 'electric',
-          pokemonType2: null,
-          pokemonNumber: 25,
-          pokemonName: 'pikachu',
-          pokemonPicture: 'image'
+        pokemonNumber   : pkmn[2]['id'],
+        pokemonName     : pkmn[2]['name'],
+        pokemonPicture  : pkmn[2]['sprites']['front_default'],
+        pokemonType     : pkmn[2]['types'][0]['type']['name'],
+        pokemonType2    : pkmn[2]['types'][1]['type']['name']
+      },
+      slot4: {
+        pokemonNumber   : pkmn[3]['id'],
+        pokemonName     : pkmn[3]['name'],
+        pokemonPicture  : pkmn[3]['sprites']['front_default'],
+        pokemonType     : pkmn[3]['types'][0]['type']['name'],
+        pokemonType2    : pkmn[3]['types'][1]['type']['name']
+      },
+      slot5: {
+        pokemonNumber   : pkmn[4]['id'],
+        pokemonName     : pkmn[4]['name'],
+        pokemonPicture  : pkmn[4]['sprites']['front_default'],
+        pokemonType     : pkmn[4]['types'][0]['type']['name'],
+        pokemonType2    : pkmn[4]['types'][1]['type']['name']
+      },
+      slot6: {
+        pokemonNumber   : pkmn[5]['id'],
+        pokemonName     : pkmn[5]['name'],
+        pokemonPicture  : pkmn[5]['sprites']['front_default'],
+        pokemonType     : pkmn[5]['types'][0]['type']['name'],
+        pokemonType2    : pkmn[5]['types'][1]['type']['name']
       }
-  };
-  console.log(jsonstring);
-  return this.http.post<PkmnTeam>('http://localhost:8080/pokemon-team/teams', jsonstring, httpOptions);
+    };
+
+    console.log(jsonstring);
+
+    return null;// this.http.post<PkmnTeam>('http://localhost:8080/pokemon-team/teams', jsonstring, httpOptions);
   }
 }

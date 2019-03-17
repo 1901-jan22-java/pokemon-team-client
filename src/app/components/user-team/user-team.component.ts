@@ -47,6 +47,7 @@ export class UserTeamComponent implements OnInit {
    * gets back a pokemon team based on an array of IDs
    */
   public getPkmnTeam(team: number[]) {
+    this.pkmn = [];
     for(let i = 0; i < team.length; i++){
       this.pService.getPokemonById(team[i])
         .subscribe(data => this.pkmn.push(data));
@@ -74,8 +75,7 @@ export class UserTeamComponent implements OnInit {
   }
 
   public test(){
-    this.getTeamTypes();
- //   console.log(this.pkmn);
+//    console.log(this.pkmn);
 
     this.registerPkmnTeam(this.user, this.pkmn);
   }
