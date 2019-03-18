@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   private isLoggedIn:boolean = false;
 
+  private id: number;
   private username: string;
   private password: string;
 
@@ -20,10 +21,15 @@ export class LoginComponent implements OnInit {
   }
 
   public login(){
-    console.log('Username from html = ' + this.username);
-    console.log('Password from html = ' + this.password);
     this.loginService.login(this.username, this.password).subscribe(resp => {
-      console.log(resp);
+      if(resp.trainer != null && resp.id != null){
+        this.id = resp.trainer['id'];
+        this.username = resp.trainer['username'];
+        this.isLoggedIn = true;
+      }
     });
+    console.log(this.username);
+    console.log(this.id);
+    
   }
 }
