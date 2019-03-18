@@ -11,10 +11,10 @@
     </div>
 </div>
 
-<button (click)="getTeamTypes()">Get Team Types</button>
+<button (click)="test()">LoadTeams</button>
 <button (click)="getDamageTo(teamTypes)">Get Damage To</button>
 <button (click)="getDamageFrom(teamTypes)">Get Damage From</button>
-<button (click)="test()">LoadTeams</button>
+
 <div>Strong Against 
     <ul *ngFor="let s of strong">
         <li>Type = {{s.name}}, Multiplier = {{s.multiplier}}</li>
