@@ -51,7 +51,6 @@ export class PokemonService {
   public getDoubleDamageTo(teamTypes: Type[][]): Advantages[] {
     let result:Advantages[] = [];
     let existingTypes: string[] = [];
-
     for(let pkmn of teamTypes){
       for(let pkmnTypes of pkmn){
         for(let type of pkmnTypes['double_damage_to']){
@@ -334,8 +333,6 @@ export class PokemonService {
       jsonstring['slot6']['pokemonType2'] = null;
     }
 
-    console.log(jsonstring);
-    console.log(JSON.stringify(jsonstring));
     return this.http.post<PkmnTeam>('http://localhost:8080/pokemon-team/teams', JSON.stringify(jsonstring), httpOptions);
   }
 }

@@ -12,6 +12,7 @@ import { PokemonService } from '../../services/pokemon.service';
 export class UserTeamComponent implements OnInit {
 
   public pkmn:Array<Pokemon> = [];
+  public pkmnId = [1, 2, 3, 4, 5, 6];
   public teamTypes:Array<Type[]> = [];
 
   constructor(private pService : PokemonService) { }
@@ -40,6 +41,7 @@ export class UserTeamComponent implements OnInit {
   }
 
   public getTeamTypes() {
+    this.teamTypes = [];
     for(let i = 0; i < this.pkmn.length; i++)
       this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
     console.log(this.teamTypes);
@@ -53,5 +55,10 @@ export class UserTeamComponent implements OnInit {
   public getDamageFrom(teamTypes: Type[][]): Advantages[]{
     console.log(this.pService.damageFrom(teamTypes));
     return this.pService.damageFrom(teamTypes);
+  }
+
+  public test(){
+    this.getPkmnTeam(this.pkmnId);
+    
   }
 }

@@ -14,11 +14,8 @@ export class PokemonTableComponent implements OnInit {
   pokemon: Pokemon[] = [];
   userTeam: Pokemon[] = [];
   user = {
-      id: 22,
-      username: "Ashketchum",
-      password: "catchthemall",
-      firstName: "Ash",
-      lastName: "Ketchum"
+      username: "user",
+      password: "pass"
   };
   
   paginationLength = 0;
