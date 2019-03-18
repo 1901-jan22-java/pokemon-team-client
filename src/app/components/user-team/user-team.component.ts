@@ -14,6 +14,10 @@ export class UserTeamComponent implements OnInit {
   public pkmn:Array<Pokemon> = [];
   public pkmnId = [1, 2, 3, 4, 5, 6];
   public teamTypes:Array<Type[]> = [];
+  user = {
+    username: "user",
+    password: "pass"
+  };
 
   constructor(private pService : PokemonService) { }
 
@@ -33,6 +37,15 @@ export class UserTeamComponent implements OnInit {
     for(let i = 0; i < team.length; i++){
       this.pService.getPokemonById(team[i])
         .subscribe(data => this.pkmn.push(data));
+    }
+  }
+
+  public getPkmnTeamByTrainer(user) {
+    this.pkmn = [];
+    for(let i = 0; i < this.pkmn.length; i++){
+      this.pService.getPokemonByTrainer(this.user)
+        .subscribe(data => this.pkmn.push(data));
+        console.log('being called');
     }
   }
   
@@ -59,6 +72,5 @@ export class UserTeamComponent implements OnInit {
 
   public test(){
     this.getPkmnTeam(this.pkmnId);
-    
   }
 }

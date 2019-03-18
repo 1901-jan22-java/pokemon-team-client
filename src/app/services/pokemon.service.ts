@@ -31,6 +31,10 @@ export class PokemonService {
     return this.http.get<Pokemon>(`${this.url}/${id}`);
   }
 
+  public getPokemonByTrainer(user) : Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/pokemon-team/teams/get`, user);
+  }
+
   public getPkmnTypes(pkmn: Pokemon): Type[]{
 
     let urlString:string[] = pkmn.types.map(function(el){return el['type']['url']});
