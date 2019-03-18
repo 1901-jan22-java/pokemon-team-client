@@ -32,7 +32,7 @@ export class PokemonService {
   }
 
   public getPokemonByTrainer(user) : Observable<any>{
-    return this.http.get<any>(`http://localhost:8080/pokemon-team/teams/get`, user);
+    return this.http.post<any>(`http://localhost:8080/pokemon-team/teams/getAll`, user);
   }
 
   public getPkmnTypes(pkmn: Pokemon): Type[]{
