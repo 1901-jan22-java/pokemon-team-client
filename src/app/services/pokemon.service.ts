@@ -336,6 +336,6 @@ export class PokemonService {
 
     console.log(jsonstring);
     console.log(JSON.stringify(jsonstring));
-    return this.http.post<PkmnTeam>('http://localhost:8080/pokemon-team/teams', jsonstring, httpOptions);
+    return this.http.post<PkmnTeam>('http://localhost:8080/pokemon-team/teams', JSON.stringify(jsonstring), httpOptions);
   }
 }

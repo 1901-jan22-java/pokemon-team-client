@@ -14,10 +14,11 @@ export class PokemonTableComponent implements OnInit {
   pokemon: Pokemon[] = [];
   userTeam: Pokemon[] = [];
   user = {
-      username: "user",
-      password: "pass",
-      firstName: "Kevin",
-      lastName: "Ho"
+      id: 22,
+      username: "Ashketchum",
+      password: "catchthemall",
+      firstName: "Ash",
+      lastName: "Ketchum"
   };
   
   paginationLength = 0;
@@ -31,7 +32,7 @@ export class PokemonTableComponent implements OnInit {
   }
 
   sendTeamFunc(){
-    this.pService.addPkmn(this.user, this.userTeam);
+    this.pService.addPkmn(this.user, this.userTeam).subscribe(resp => {console.log(resp)});
   }
 
   listItemClicked(id: number) {
