@@ -14,6 +14,14 @@
 <button (click)="getTeamTypes()">Get Team Types</button>
 <button (click)="getDamageTo(teamTypes)">Get Damage To</button>
 <button (click)="getDamageFrom(teamTypes)">Get Damage From</button>
-<button (click)="getPkmnTeamByTrainer(user)">LoadTeams</button>
-<div>{{pkmn}}</div>
-<div>{{teamTypes}}</div>
+<button (click)="test()">LoadTeams</button>
+<div>Strong Against 
+    <ul *ngFor="let s of strong">
+        <li>Type = {{s.name}}, Multiplier = {{s.multiplier}}</li>
+    </ul>
+</div>
+<div>Weak Against 
+    <ul *ngFor="let w of weak">
+        <li>Type = {{w.name}}, Multiplier = {{w.multiplier}}</li>
+    </ul>
+</div>

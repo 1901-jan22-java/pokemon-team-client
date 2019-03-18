@@ -14,6 +14,8 @@ export class UserTeamComponent implements OnInit {
   public pkmn:Array<Pokemon> = [];
   public pkmnId = [1, 2, 3, 4, 5, 6];
   public teamTypes:Array<Type[]> = [];
+  public strong = [];
+  public weak = [];
   user = {
     username: "user",
     password: "pass"
@@ -60,14 +62,14 @@ export class UserTeamComponent implements OnInit {
     console.log(this.teamTypes);
   }
 
-  public getDamageTo(teamTypes: Type[][]): Advantages[]{
+  public getDamageTo(teamTypes: Type[][]){
     console.log(this.pService.damageTo(teamTypes));
-    return this.pService.damageTo(teamTypes);
+    this.strong = this.pService.damageTo(teamTypes);
   }
 
-  public getDamageFrom(teamTypes: Type[][]): Advantages[]{
+  public getDamageFrom(teamTypes: Type[][]){
     console.log(this.pService.damageFrom(teamTypes));
-    return this.pService.damageFrom(teamTypes);
+    this.weak = this.pService.damageFrom(teamTypes);
   }
 
   public test(){
