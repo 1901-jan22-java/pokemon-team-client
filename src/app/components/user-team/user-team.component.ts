@@ -63,11 +63,15 @@ export class UserTeamComponent implements OnInit {
   }
 
   public getDamageTo(teamTypes: Type[][]){
+    this.getTeamTypes();
+
     console.log(this.pService.damageTo(teamTypes));
     this.strong = this.pService.damageTo(teamTypes);
   }
 
   public getDamageFrom(teamTypes: Type[][]){
+    this.getTeamTypes();
+
     console.log(this.pService.damageFrom(teamTypes));
     this.weak = this.pService.damageFrom(teamTypes);
   }
