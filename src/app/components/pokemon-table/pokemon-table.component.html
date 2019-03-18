@@ -16,9 +16,11 @@
 -->
 
   <div>
-    <ol>
-      <li *ngFor="let u of userTeam"></li>
-    </ol>
+    Add Pokemon to team by clicking them in the table!
+    <ul *ngFor="let x of userTeam">
+      <li> {{x.name}}</li>
+    </ul>
+    <button id="sendTeam" class="btn-lg pointer" (click)="sendTeamFunc()">Submit</button>
   </div>
 
   <div>

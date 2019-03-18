@@ -71,8 +71,22 @@ span, p, li, a {
     background-repeat: no-repeat;
 }
 
-.tut-img {
-    background-image: url("/assets/wartortle.jpg") !important;
+.non-img {
+    /* background-image: url("/assets/aerodactyl.jpg") !important; */
+    background-color: #A6C7CE;
+    /* background-position: center; */
+    /* background-repeat: repeat; */
+}
+
+.team-img {
+    background-image: url("/assets/dewgong.jpg");
+    height: 110vh;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+}
+
+.table-img {
+    background-image: url("/assets/aerodactyl.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
 }

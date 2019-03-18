@@ -204,14 +204,11 @@ export class PokemonService {
       }
     }
 
-    for(let type of noDamageTo){
-      if(teamSummary.find(x => x.name === type.name) === undefined){
+    for(let type of noDamageTo)
+      if(teamSummary.find(x => x.name === type.name) === undefined)
         teamSummary.push(type);
-      }
-      else {
+      else 
         teamSummary.find(x => x.name === type.name).multiplier = type.multiplier;
-      }
-    }
 
     return teamSummary;
   }
@@ -234,14 +231,11 @@ export class PokemonService {
       }
     }
 
-    for(let type of noDamageFrom){
-      if(teamSummary.find(x => x.name === type.name) === undefined){
+    for(let type of noDamageFrom)
+      if(teamSummary.find(x => x.name === type.name) === undefined)
         teamSummary.push(type);
-      }
-      else {
+      else 
         teamSummary.find(x => x.name === type.name).multiplier = type.multiplier;
-      }
-    }
 
     return teamSummary;
   }
@@ -264,7 +258,7 @@ export class PokemonService {
       };
   }
 
-  public addPkmn(user :PkUser, pkmn :Pokemon[]) : Observable<PkmnTeam>{ 
+  public addPkmn(user, pkmn :Pokemon[]) : Observable<PkmnTeam>{ 
 
     let jsonstring = {
       trainer: { 

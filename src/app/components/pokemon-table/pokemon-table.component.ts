@@ -1,7 +1,7 @@
 import { Pokemon } from './../../models/Pokemon';
 import { PokemonService } from './../../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
-
+import { PkUser } from '../../models/PkUsers';
 
 @Component({
   selector: 'app-pokemon-table',
@@ -13,6 +13,13 @@ import { Component, OnInit } from '@angular/core';
 export class PokemonTableComponent implements OnInit {
   pokemon: Pokemon[] = [];
   userTeam: Pokemon[] = [];
+  user = {
+      username: "user",
+      password: "pass",
+      firstName: "Kevin",
+      lastName: "Ho"
+  };
+  
   paginationLength = 0;
   paginationPage = 1;
 
@@ -20,40 +27,18 @@ export class PokemonTableComponent implements OnInit {
 
   ngOnInit() {
     this.getPokemon();
+    document.body.classList.add('non-img');
   }
 
-/*
-  getPageinationLength(): Array<number> {
-    const arr: number[] = [];
-    const starting = (this.paginationPage - 1);
-    const end = Math.floor(9 + starting - 1);
-    if (starting < 4) {
-      for (let i = 0; i < 9; i++) {
-        arr.push(i + 1);
-      }
-    } else if (starting > this.paginationLength - 4) {
-      for (let i = this.paginationLength - 9; i < this.paginationLength; i++) {
-        arr.push(i + 1);
-      }
-    } else {
-      for (let i = starting - 4; i < end - 3; i++) {
-        arr.push(i + 1);
-      }
-    }
-    return arr;
+  sendTeamFunc(){
+    this.pService.addPkmn(this.user, this.userTeam);
   }
-*/
 
   listItemClicked(id: number) {
     if(this.userTeam.length < 6)
       this.userTeam.push(this.pokemon.find(item => item.id === id));
-    console.log(this.userTeam);
   }
-/*
-  pageChange(page: number) {
-    this.paginationPage = page;
-    this.getPokemon();
-  }*/
+
   getPokemon() {
     this.pokemon = [];
     this.pService.getPokemon(this.paginationPage).subscribe(

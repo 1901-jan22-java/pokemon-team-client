@@ -3,8 +3,6 @@ import { Pokemon } from '../../models/Pokemon';
 import { Type } from '../../models/Type';
 import { Advantages } from '../../models/Advantages';
 import { PokemonService } from '../../services/pokemon.service';
-import { SpringCommService } from '../../services/spring-comm.service';
-import { PkUser } from '../../models/PkUsers';
 
 @Component({
   selector: 'app-user-team',
@@ -15,26 +13,11 @@ export class UserTeamComponent implements OnInit {
 
   public pkmn:Array<Pokemon> = [];
   public teamTypes:Array<Type[]> = [];
-  public user = {
-    id: 4,
-    username: "user",
-    password: "pass",
-    firstName: "Kevin",
-    lastName: "Ho"
-  };
-  /**
-   * treecko    grass
-   * charmander fire
-   * squirtle   water
-   * caterpie   bug
-   * weedle     bug poison
-   * gengar     ghost poison
-   */
 
-  constructor(private pService : PokemonService, 
-              private sCommService: SpringCommService) { }
+  constructor(private pService : PokemonService) { }
 
   ngOnInit(){
+    document.body.classList.add('team-img');
   }
 
   public getTeam() {
@@ -57,22 +40,18 @@ export class UserTeamComponent implements OnInit {
   }
 
   public getTeamTypes() {
-    for(let i = 0; i < this.pkmn.length; i++){
+    for(let i = 0; i < this.pkmn.length; i++)
       this.teamTypes.push(this.pService.getPkmnTypes(this.pkmn[i]));
-    }
+    console.log(this.teamTypes);
   }
 
-  public getDamageTo(teamTypes: Type[][]) : Advantages[]{
+  public getDamageTo(teamTypes: Type[][]): Advantages[]{
     console.log(this.pService.damageTo(teamTypes));
     return this.pService.damageTo(teamTypes);
   }
 
-  public getDamageFrom(teamTypes: Type[][]) : Advantages[]{
+  public getDamageFrom(teamTypes: Type[][]): Advantages[]{
     console.log(this.pService.damageFrom(teamTypes));
     return this.pService.damageFrom(teamTypes);
-  }
-
-  public test(){
-    this.registerPkmnTeam(this.user, this.pkmn);
   }
 }
