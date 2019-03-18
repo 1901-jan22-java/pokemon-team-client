@@ -14,14 +14,6 @@ export class UserTeamComponent implements OnInit {
   public pkmn:Array<Pokemon> = [];
   public teamTypes:Array<Type[]> = [];
   public team = [252, 4, 7, 10, 13, 94];
-  /**
-   * treecko    grass
-   * charmander fire
-   * squirtle   water
-   * caterpie   bug
-   * weedle     bug poison
-   * gengar     ghost poison
-   */
 
   constructor(private pService : PokemonService) { }
 
