@@ -1,5 +1,5 @@
 .teams {
-    height: 75vh;
+    height: 20vh;
     width: auto;
     margin: 0 20px;
     border: 1px solid #000;
@@ -14,4 +14,15 @@
     height: 20vh;
     width: 20vw;
     border: 1px solid #000;
+}
+
+li {
+    font-size: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10px;
 }

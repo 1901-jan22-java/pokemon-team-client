@@ -10,10 +10,21 @@
         </div>
     </div>
 </div>
-
-<button (click)="getTeamTypes()">Get Team Types</button>
+<div style="margin-left: 1.5vw;">
+<button (click)="test()">LoadTeams</button>
 <button (click)="getDamageTo(teamTypes)">Get Damage To</button>
 <button (click)="getDamageFrom(teamTypes)">Get Damage From</button>
-<button (click)="getPkmnTeamByTrainer(user)">LoadTeams</button>
-<div>{{pkmn}}</div>
-<div>{{teamTypes}}</div>
+</div>
+<div class="row" style="margin-top: 5vh;">
+<div style="margin-right: 10vw;"><b>Strong Against</b>
+    <ul *ngFor="let s of strong" style="margin-top: 5vh;">
+        <li>Type = {{s.name}}, Multiplier = {{s.multiplier}}</li>
+    </ul>
+</div>
+
+<div><b>Weak Against</b> 
+    <ul *ngFor="let w of weak" style="margin-top: 5vh;">
+        <li>Type = {{w.name}}, Multiplier = {{w.multiplier}}</li>
+    </ul>
+</div>
+</div>
