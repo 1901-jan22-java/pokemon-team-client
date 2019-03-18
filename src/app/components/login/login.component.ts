@@ -22,9 +22,10 @@ export class LoginComponent implements OnInit {
 
   public login(){
     this.loginService.login(this.username, this.password).subscribe(resp => {
-      if(resp.trainer != null && resp.id != null){
-        this.id = resp.trainer['id'];
-        this.username = resp.trainer['username'];
+      if(resp != null){
+        console.log(resp);
+        this.id = resp['id'];
+        this.username = resp['username'];
         this.isLoggedIn = true;
       }
     });
